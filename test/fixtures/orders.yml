@@ -2,8 +2,8 @@
 
 one:
   ordered_at: 2014-02-12 17:21:35
-  vat: 9.99
+  vat: 20.00
 
 two:
-  ordered_at: 2014-02-12 17:21:35
-  vat: 9.99
+  ordered_at: 2014-02-13 17:21:35
+  vat: 20.00
