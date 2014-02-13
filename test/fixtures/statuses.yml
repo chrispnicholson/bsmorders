@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_status_id: 1
+  status_type: MyString
+  status_reason: MyString
+
+two:
+  order_status_id: 1
+  status_type: MyString
+  status_reason: MyString
