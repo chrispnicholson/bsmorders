@@ -33,7 +33,10 @@ class LineItemsController < ApplicationController
 
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(params[:line_item])
+    product = Product.find(params[:product_id])
+	@order = Order.find(params[:order_id])
+    @line_item = @order.line_items.build
+	@line_item.product = product
 
     respond_to do |format|
       if @line_item.save

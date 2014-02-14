@@ -5,5 +5,5 @@ one:
   status_id: 1
 
 two:
-  order_id: 1
-  status_id: 1
+  order_id: 2
+  status_id: 2
