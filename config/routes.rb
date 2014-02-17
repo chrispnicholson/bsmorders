@@ -2,7 +2,7 @@ BsmOrders::Application.routes.draw do
   resources :line_items
 
 
-  resources :orders
+  resources :orders, except: [:destroy]
 
 
   resources :products

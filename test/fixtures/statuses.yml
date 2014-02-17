@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  order_status_id: 1
+cancelled:
   status_type: CANCELLED
-  status_reason: Unwanted Christmas gift
 
-two:
-  order_status_id: 1
+draft:
   status_type: DRAFT
-  status_reason: 
+
+placed:
+  status_type: PLACED
+  
+paid:
+  status_type: PAID

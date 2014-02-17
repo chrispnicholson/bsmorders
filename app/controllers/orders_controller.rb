@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     respond_to do |format|
-      format.json { render json: @order }
+      format.json { render json: @order.to_json }
     end
   end
 
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     @order = Order.new
 
     respond_to do |format|
-      format.json { render json: @order }
+      format.json { render json: @order.to_json }
     end
   end
 
@@ -35,6 +35,9 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+	@status = Status.new(:status_type => 'DRAFT')
+	@order_status = @order.order_statuses.build
+	@order_status.status = @status
 
     respond_to do |format|
       if @order.save
@@ -61,10 +64,16 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
-    @order.destroy
-
+	
+	begin
+      @order.destroy
+	rescue ActiveRecord::DeleteRestrictionError
+	  logger.error "Cannot delete live orders"
+	  @order.errors[:cannot_delete_live_order] << 'Cannot delete live orders'
+	end
+	
     respond_to do |format|
-      format.json { head :no_content }
+      format.json { render json @order.errors }
     end
   end
 end

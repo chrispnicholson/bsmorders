@@ -14,3 +14,13 @@ Product.create(name: 'A Slug That Talks (Not Really)', price: 30.00)
 Product.create(name: 'Spiny Norman The Hedgehog', price: 79.95)
 
 Product.create(name: 'A Confused Cat', price: 40.00)
+
+Status.delete_all
+
+Status.create(status_type: 'DRAFT')
+
+Status.create(status_type: 'PLACED')
+
+Status.create(status_type: 'PAID')
+
+Status.create(status_type: 'CANCELLED')

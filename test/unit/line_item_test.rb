@@ -15,4 +15,8 @@ class LineItemTest < ActiveSupport::TestCase
 	line_item3 = LineItem.new(order_id: 1, product_id: 1, quantity: 1)
 	assert line_item3.valid?
   end
+  
+  test "line item cannot be altered once order status isn't draft" do
+	assert false
+  end
 end

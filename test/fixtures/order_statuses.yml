@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  order_id: 1
-  status_id: 1
+  order: one
+  status: cancelled
+  order_status_reason: Unwanted Christmas gift
 
 two:
-  order_id: 2
-  status_id: 2
+  order: two
+  status: draft
+  order_status_reason: 

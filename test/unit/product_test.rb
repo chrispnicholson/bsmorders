@@ -64,7 +64,10 @@ class ProductTest < ActiveSupport::TestCase
 	assert order.save
 	assert product.save
 	
-	assert !product.destroy
+	#assert !product.destroy
+	assert_raise ActiveRecord::DeleteRestrictionError do
+	  product.destroy
+	end
 	
 	product2 = Product.find_by_name("This cannot be deleted")
 	assert_not_nil product2

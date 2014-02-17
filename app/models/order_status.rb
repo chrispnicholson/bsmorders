@@ -1,6 +1,6 @@
 class OrderStatus < ActiveRecord::Base
-  attr_accessible :order_id, :status_id
+  attr_accessible :order_status_reason
   belongs_to :order
-  has_many :statuses
-  validates_associated :statuses
+  belongs_to :status
+  validates_associated :status
 end

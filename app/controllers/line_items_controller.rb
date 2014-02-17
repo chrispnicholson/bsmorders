@@ -13,7 +13,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
 
     respond_to do |format|
-      format.json { render json: @line_item }
+      format.json { render json: @line_item.to_json(include:{product: {:only => :name}}) }
     end
   end
 
@@ -22,7 +22,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.new
 
     respond_to do |format|
-      format.json { render json: @line_item }
+      format.json { render json: @line_item.to_json(include:{product: {:only => :name}}) }
     end
   end
 
@@ -40,7 +40,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.json { render json: @line_item, status: :created, location: @line_item }
+        format.json { render json: @line_item.to_json(include:{product: {:only => :name}}), status: :created, location: @line_item }
       else
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
