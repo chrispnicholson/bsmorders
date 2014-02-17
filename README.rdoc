@@ -15,7 +15,7 @@ PlacedStatusState, PaidStatusState and CancelledStatusState. They would have a r
 to the original Order object. The code in those template methods would simply be the code 
 from Order refactored from save_as_draft, save_as_placed, save_as_paid and save_as_cancelled.
 
-You can see the current code (not refactored like above) for Order in link:files/app/models/order.rb
+You can see the current code (not refactored like above) for Order in link:app/models/order.rb
 
 * OrderStatus and Status
 I could be accused of maybe over-engineering this. Why the need for a one-to-many relationship
@@ -29,8 +29,8 @@ coupled to Order and, more pertinently, it's very easy to get an audit trail of 
 lifecycle, showing a list of the OrderStatuses (and their associated Status objects), if an
 OrderStatus Controller is ever needed (currently, there isn't one, however).
 
-You can see the current code for OrderStatus at link:files/app/models/order_status.rb
-You can see the current code for Status at link:files/app/models/status.rb
+You can see the current code for OrderStatus at link:app/models/order_status.rb
+You can see the current code for Status at link:app/models/status.rb
 
 * Functional tests
 I made a start on the functional tests for the Controllers. Currently, this meant installing
